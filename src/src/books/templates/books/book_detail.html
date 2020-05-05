@@ -1,0 +1,48 @@
+{% extends 'books/base.html' %}
+{% block content %}
+
+<div class="container m-5">
+    <div class="row m-5">
+        <div class="col-4">
+            <img class="img-fluid rounded" src="/media/{{ book.image }}" alt="">
+        </div>
+        <div class="col-8">
+            <h1 class="font-weight-light">{{ book.name }}</h1>
+            <p>{{ book.description }}</p>
+            <p><small class="text-muted">Author: {{ book.author }}</small></p>
+            <p><small class="text-muted">Published Year: {{ book.published_year }}</small>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <h4>Location Map</h4>
+                        <img class="img-thumbnail w-50" src="/media/book/images/1.png" />
+                    </div>
+                    <div class="col">
+                        <h4>Current Location: {{ book.location|upper }}</h4>
+                        {% if book.location == 'a' %}
+                        <img class="img-thumbnail w-50" src="/media/book/images/2.png" />
+                        {% elif book.location == 'b' %}
+
+                        <img class="img-thumbnail w-50" src="/media/book/images/3.png" />
+                        {% elif book.location == 'c' %}
+
+                        <img class="img-thumbnail w-50" src="/media/book/images/4.png" />
+                        {% elif book.location == 'd' %}
+
+                        <img class="img-thumbnail w-50" src="/media/book/images/5.png" />
+                        {% elif book.location == 'e' %}
+
+                        <img class="img-thumbnail w-50" src="/media/book/images/6.png" />
+                        {% elif book.location == 'f' %}
+
+                        <img class="img-thumbnail w-50" src="/media/book/images/7.png" />
+                        {% elif book.location == 'g' %}
+
+                        <img class="img-thumbnail w-50" src="/media/book/images/8.png" />
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

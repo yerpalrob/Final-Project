@@ -1,0 +1,31 @@
+{% extends 'books/base.html' %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4 text-center">Welcome to BooksLib</h1>
+        <p class="lead text-center">Explore the world’s knowledge.</p>
+    </div>
+</div>
+<div class="container mb-5">
+    <h2 class="text-center">Explore Books</h2>
+    <br>
+    <div class="row">
+        {% for book in book_list %}
+        <div class="card-group">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img class="img-fluid pt-1" src="/media/{{ book.image }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{book.get_absolute_url}}">{{ book.name }}</a></h5>
+                        <p class="card-text">{{ book.description|slice:":20"}}</p>
+                        <p class="card-text"><small class="text-muted">Author: {{ book.author }}</small></p>
+                        <p class="card-text"><small class="text-muted">Published Year: {{ book.published_year }}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
